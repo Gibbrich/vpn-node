@@ -18,6 +18,7 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt               # SSL certificates
       - ./certbot/www:/var/www/certbot                # Webroot for Certbot
+    network_mode: host
     profiles: [ init ]
     entrypoint: "certbot certonly --standalone -d your-domain.com"
 
